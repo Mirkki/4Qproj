@@ -21,7 +21,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 150px;
+  width: 200px;
   height: 100%;
   background-color: #fff;
   padding: 20px;
@@ -84,3 +84,4 @@ th {
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }
+

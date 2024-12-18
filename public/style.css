@@ -14,11 +14,12 @@ header, footer {
 .sidebar {
     position: fixed;
     top: 0;
-    left: 0;
+    left: -250px; /* Sidebar is hidden by default */
     width: 250px;
     height: 100%;
     background-color: #f0f0f0;
     padding: 20px;
+    transition: left 0.3s ease; /* Smooth transition for showing/hiding */
 }
 
 .sidebar ul {
@@ -33,6 +34,24 @@ header, footer {
 .sidebar a {
     text-decoration: none;
     color: #333;
+}
+
+.sidebar-toggle-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 1000; /* Make sure the button is on top */
+}
+
+/* Show sidebar when toggled */
+.sidebar.show {
+    left: 0; /* Move sidebar into view */
 }
 
 .main-container {

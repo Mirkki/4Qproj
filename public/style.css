@@ -15,21 +15,31 @@ header, footer {
     position: fixed;
     top: 0;
     left: 0;
-    width: 250px;
-    height: 100%;
+    width: 0; /* Start with the sidebar collapsed */
+    height: 0;
     background-color: #f0f0f0;
-    padding: 20px;
-    box-sizing: border-box; /* Prevent padding from affecting width */
-    z-index: 100; /* Keep the sidebar on top */
+    overflow: hidden;
+    transition: width 0.5s ease-out, height 0.5s ease-out; /* Smooth transition for width */
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.sidebar.open {
+    width: 250px; /* Adjust the width of the sidebar when opened */
+    height: 100%; /* Make it extend full height */
 }
 
 .sidebar ul {
     list-style: none;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
 }
 
 .sidebar li {
     padding: 10px;
+    text-align: center;
 }
 
 .sidebar a {
@@ -37,54 +47,55 @@ header, footer {
     color: #333;
 }
 
+.sidebar-toggle-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 200; /* Make sure the button stays above the sidebar */
+}
+
 main {
-    margin-left: 250px; /* Create space on the left for the sidebar */
     padding: 20px;
+    margin-left: 0; /* Content is not pushed by the sidebar yet */
+    transition: margin-left 0.5s ease-out; /* Smooth transition for content */
+}
+
+/* When the sidebar is opened, shift the content */
+.sidebar.open ~ main {
+    margin-left: 250px; /* Adjust content when sidebar is open */
 }
 
 h1, h2, h3 {
-    margin-top: 0; /* Remove top margin */
-}
-
-/* Table styles */
-table {
-    width: 100%;
-    border-collapse: collapse; /* Collapses table borders */
-    margin-top: 20px;
-}
-
-table, th, td {
-    border: 1px solid black; /* Adds border to table and cells */
-}
-
-th, td {
-    padding: 8px;
-    text-align: left; /* Align text to the left */
-}
-
-th {
-    background-color: #f2f2f2; /* Light background for headers */
+    margin-top: 0;
 }
 
 /* Make the sidebar responsive on smaller screens */
 @media (max-width: 1024px) {
     .sidebar {
-        width: 200px; /* Adjust width of sidebar */
+        width: 200px; /* Adjust width of sidebar for medium screens */
     }
 
-    main {
-        margin-left: 200px; /* Adjust the left margin for smaller sidebar */
+    .sidebar.open ~ main {
+        margin-left: 200px; /* Adjust content for smaller sidebar */
     }
 }
 
 @media (max-width: 600px) {
     .sidebar {
-        width: 100%; /* Sidebar takes full width */
+        width: 100%; /* Sidebar takes full width on small screens */
         position: relative;
     }
-    main {
+
+    .sidebar.open ~ main {
         margin-left: 0; /* Remove left margin for smaller screens */
     }
+
     .sidebar ul {
         display: flex;
         flex-direction: column;

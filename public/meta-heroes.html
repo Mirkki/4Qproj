@@ -10,8 +10,11 @@
     <header class="banner">
         <h1>Mobile Legends Meta Heroes</h1>
     </header>
+<!-- Button to toggle sidebar -->
+    <button id="sidebar-toggle-btn" class="sidebar-toggle-btn">☰</button>
 
-    <nav class="sidebar">
+    <!-- Sidebar -->
+    <nav id="sidebar" class="sidebar">
         <ul>
              <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
@@ -69,5 +72,120 @@
     <footer>
         <p>© 2024 Mobile Legend Meta Heroes</p>
   </footer>
+   <script>
+        // JavaScript to toggle sidebar
+        const sidebar = document.getElementById("sidebar");
+        const sidebarToggleBtn = document.getElementById("sidebar-toggle-btn");
+
+        sidebarToggleBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("open");
+        });
+    </script>
+
+    <style>
+        /* Default styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header, footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0; /* Start with the sidebar collapsed */
+            height: 0;
+            background-color: #f0f0f0;
+            overflow: hidden;
+            transition: width 0.5s ease-out, height 0.5s ease-out; /* Smooth transition for width */
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .sidebar.open {
+            width: 250px; /* Adjust the width of the sidebar when opened */
+            height: 100%; /* Make it extend full height */
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+
+        .sidebar li {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .sidebar-toggle-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 200; /* Make sure the button stays above the sidebar */
+        }
+
+        main {
+            padding: 20px;
+            margin-left: 0; /* Content is not pushed by the sidebar yet */
+            transition: margin-left 0.5s ease-out; /* Smooth transition for content */
+        }
+
+        /* When the sidebar is opened, shift the content */
+        .sidebar.open ~ main {
+            margin-left: 250px; /* Adjust content when sidebar is open */
+        }
+
+        h1, h2, h3 {
+            margin-top: 0;
+        }
+
+        /* Make the sidebar responsive on smaller screens */
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 200px; /* Adjust width of sidebar for medium screens */
+            }
+
+            .sidebar.open ~ main {
+                margin-left: 200px; /* Adjust content for smaller sidebar */
+            }
+        }
+
+        @media (max-width: 600px) {
+            .sidebar {
+                width: 100%; /* Sidebar takes full width on small screens */
+                position: relative;
+            }
+
+            .sidebar.open ~ main {
+                margin-left: 0; /* Remove left margin for smaller screens */
+            }
+
+            .sidebar ul {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    </style>
 </body>
 </html>

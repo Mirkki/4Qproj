@@ -7,9 +7,10 @@ const port = 3000;
 
 // Middleware
 
-// script.js
+// JavaScript to toggle sidebar
+const sidebar = document.getElementById("sidebar");
+const sidebarToggleBtn = document.getElementById("sidebar-toggle-btn");
 
-document.getElementById('sidebar-toggle').addEventListener('click', function() {
-    var sidebar = document.getElementById('sidebar');
-    sidebar.classList.toggle('show');
+sidebarToggleBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("open");
 });

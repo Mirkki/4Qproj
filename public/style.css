@@ -85,3 +85,11 @@ tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
+
+.header-slideshow {
+    position: relative; /* Ensure it only applies to the header */
+    height: 100vh; /* Full viewport height */
+    background-size: cover;
+    background-position: center;
+    transition: background 1s ease-in-out;
+}

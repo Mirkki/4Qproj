@@ -73,17 +73,18 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 60px;
+            width: 0; /* Start with the sidebar collapsed */
             height: 0;
             background-color: #f0f0f0;
             overflow: hidden;
-            transition: height 0.5s ease-out;
+            transition: width 0.5s ease-out, height 0.5s ease-out; /* Smooth transition for width */
             padding: 10px;
             box-sizing: border-box;
         }
 
         .sidebar.open {
-            height: 100%; /* Expand the sidebar */
+            width: 250px; /* Adjust the width of the sidebar when opened */
+            height: 100%; /* Make it extend full height */
         }
 
         .sidebar ul {
@@ -119,12 +120,13 @@
 
         main {
             padding: 20px;
-            margin-left: 60px; /* Adjust content to avoid the small sidebar */
+            margin-left: 0; /* Content is not pushed by the sidebar yet */
+            transition: margin-left 0.5s ease-out; /* Smooth transition for content */
         }
 
-        /* Adjust main content when sidebar is expanded */
+        /* When the sidebar is opened, shift the content */
         .sidebar.open ~ main {
-            margin-left: 200px; /* Adjust for larger sidebar */
+            margin-left: 250px; /* Adjust content when sidebar is open */
         }
 
         h1, h2, h3 {
@@ -134,17 +136,17 @@
         /* Make the sidebar responsive on smaller screens */
         @media (max-width: 1024px) {
             .sidebar {
-                width: 200px; /* Adjust width of sidebar */
+                width: 200px; /* Adjust width of sidebar for medium screens */
             }
 
             .sidebar.open ~ main {
-                margin-left: 200px;
+                margin-left: 200px; /* Adjust content for smaller sidebar */
             }
         }
 
         @media (max-width: 600px) {
             .sidebar {
-                width: 100%; /* Sidebar takes full width */
+                width: 100%; /* Sidebar takes full width on small screens */
                 position: relative;
             }
 

@@ -101,3 +101,63 @@ h1, h2, h3 {
         flex-direction: column;
     }
 }
+/* Slideshow container */
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+    margin-top: 20px;
+}
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+}
+
+/* Slide images */
+.mySlides img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Slide text */
+.text {
+    color: #fff;
+    font-size: 20px;
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 0 0 10px 10px;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Position the "next" button to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a darker background */
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}

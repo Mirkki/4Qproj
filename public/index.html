@@ -11,6 +11,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Slideshow Background -->
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="https://cdn.glitch.global/0a76087d-70c6-4b75-ace4-c40a965aa8bb/thumbnails%2F841ee1db-2051-4b00-a05d-a3043081e7b3.image.png?1734538008708" alt="Hero 1">
+        </div>
+        <div class="mySlides fade">
+            <img src="https://cdn.glitch.global/0a76087d-70c6-4b75-ace4-c40a965aa8bb/24fa89a2-eab2-49af-b772-7fbea82655b9.image.png?v=1734537931236" alt="Hero 2">
+        </div>
+        <div class="mySlides fade">
+            <img src="https://cdn.glitch.global/0a76087d-70c6-4b75-ace4-c40a965aa8bb/thumbnails%2Fbenedetta.jpeg?1734540607944" alt="Hero 3">
+        </div>
+    </div>
+
+    <!-- Website Content -->
     <header>
         <h1>Mobile Legend Meta Heroes: Builds and Skill Combos</h1>
         <p>Your guide to dominating the Mobile Legends battlefield.</p>
@@ -55,110 +69,6 @@
         });
     </script>
 
-    <style>
-        /* Default styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        header, footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #f2f2f2;
-        }
-
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0; /* Start with the sidebar collapsed */
-            height: 0;
-            background-color: #f0f0f0;
-            overflow: hidden;
-            transition: width 0.5s ease-out, height 0.5s ease-out; /* Smooth transition for width */
-            padding: 10px;
-            box-sizing: border-box;
-        }
-
-        .sidebar.open {
-            width: 250px; /* Adjust the width of the sidebar when opened */
-            height: 100%; /* Make it extend full height */
-        }
-
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            margin-top: 20px;
-        }
-
-        .sidebar li {
-            padding: 10px;
-            text-align: center;
-        }
-
-        .sidebar a {
-            text-decoration: none;
-            color: #333;
-        }
-
-        .sidebar-toggle-btn {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background-color: #333;
-            color: white;
-            border: none;
-            padding: 10px;
-            font-size: 20px;
-            cursor: pointer;
-            z-index: 200; /* Make sure the button stays above the sidebar */
-        }
-
-        main {
-            padding: 20px;
-            margin-left: 0; /* Content is not pushed by the sidebar yet */
-            transition: margin-left 0.5s ease-out; /* Smooth transition for content */
-        }
-
-        /* When the sidebar is opened, shift the content */
-        .sidebar.open ~ main {
-            margin-left: 250px; /* Adjust content when sidebar is open */
-        }
-
-        h1, h2, h3 {
-            margin-top: 0;
-        }
-
-        /* Make the sidebar responsive on smaller screens */
-        @media (max-width: 1024px) {
-            .sidebar {
-                width: 200px; /* Adjust width of sidebar for medium screens */
-            }
-
-            .sidebar.open ~ main {
-                margin-left: 200px; /* Adjust content for smaller sidebar */
-            }
-        }
-
-        @media (max-width: 600px) {
-            .sidebar {
-                width: 100%; /* Sidebar takes full width on small screens */
-                position: relative;
-            }
-
-            .sidebar.open ~ main {
-                margin-left: 0; /* Remove left margin for smaller screens */
-            }
-
-            .sidebar ul {
-                display: flex;
-                flex-direction: column;
-            }
-        }
-    </style>
+    <script src="script.js"></script>
 </body>
 </html>

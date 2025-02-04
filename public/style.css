@@ -129,3 +129,13 @@ body, html {
     z-index: -1; /* Place it behind other content */
 }
 
+html, body {
+  height: 100%;
+  overflow: auto;
+}
+
+.image-container {
+  height: auto; /* or some appropriate value */
+  overflow: visible; 
+}
+

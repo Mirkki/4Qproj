@@ -11,19 +11,52 @@ section will enable users to post comments, which will be displayed chronologica
 Both features will be integrated into a dedicated "Feedback" page, while the average
 rating may also appear on the homepage or a summary section.
 
+
+Type of data: User-submitted star ratings
+Purpose: To collect and display overall user satisfaction metrics.
+JSON Structure:
 {
   "ratings": [
     {
-      "id": "unique-id-1",
-      "user": "anonymous-or-user-id",
-      "value": 4,
-      "timestamp": "2023-11-20T14:30:00Z"
+      "id": text-string,
+      "user": text-string,
+      "value": number(1-5),
+      "timestamp": date
     },
     {
-      "id": "unique-id-2",
-      "user": "anonymous-or-user-id",
-      "value": 5,
-      "timestamp": "2023-11-21T09:15:00Z"
+      "id": text-string,
+      "user": text-string,
+      "value": number(1-5),
+      "timestamp": date
+    }
+  ]
+}
+
+
+Type of data: User-submitted comments
+Purpose: To allow users to share detailed feedback and engage with others.
+JSON Structure:
+{
+  "comments": [
+    {
+      "id": text-string,
+      "user": text-string,
+      "text": text-string,
+      "timestamp": date,
+      "replies": [
+        {
+          "id": text-string,
+          "user": text-string,
+          "text": text-string,
+          "timestamp": date
+        }
+    },
+    {
+      "id": text-string,,
+      "user": text-string,,
+      "text": text-string,
+      "timestamp":date,
+      "replies": []
     }
   ]
 }

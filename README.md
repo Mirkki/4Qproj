@@ -1,8 +1,8 @@
-To enhance user interaction and feedback on the website, 
-two key features will be added: a star-rating system and a comment section. 
-These features will allow users to rate their experience (on a scale of 1-5)
-and leave textual feedback, respectively. The data collected will be stored
-persistently on the server using JSON format.
+To make the user interaction and feedback on the website better, 
+two features will be added; a five star-rating system and a comment section. 
+These features will allow users to rate their experience (on a scale of 1-5) along
+with a textual feedback, respectively. The data collected will be stored
+on the server using JSON format.
 
 For the rating system, users will click on one of five stars to submit 
 their rating. This data will be aggregated to display an average rating on 

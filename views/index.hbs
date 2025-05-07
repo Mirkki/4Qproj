@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}</title>
-    <link rel="stylesheet" href="/public/style.css">
+    <link rel="stylesheet" href="/style.css">
     <script src="https://www.w3schools.com/lib/w3.js"></script>
 </head>
 <body>
@@ -29,6 +29,7 @@
             <li><a href="/effective-combos">Effective Combos</a></li>
             <li><a href="/members">Members</a></li>
             <li><a href="/contact">Contact</a></li>
+            <li><a href="/comments">Community Comments</a></li>
         </ul>
     </nav>
 
@@ -46,11 +47,29 @@
             <button type="submit">Submit</button>
         </form>
 
-        <!-- Display Entries -->
+        <!-- Display Entries with Edit & Delete Options -->
         <h2>Community Entries</h2>
         <ul>
             {{#each entries}}
-            <li>{{this.name}} - {{this.message}}</li>
+            <li>
+                <strong>{{this.name}}</strong>: <span id="message-{{this.id}}">{{this.message}}</span>
+
+                <!-- Edit & Delete Buttons -->
+                <button class="edit-btn" onclick="showEditForm('{{this.id}}')">Edit</button>
+                <form action="/delete" method="POST" style="display:inline;">
+    <input type="hidden" name="entryId" value="{{this.id}}">
+    <button type="submit">Delete</button>
+</form>
+
+
+                <!-- Edit Form (Hidden Initially) -->
+                <form action="/edit-entry" method="POST" class="edit-form" id="edit-form-{{this.id}}" style="display:none;">
+                    <input type="hidden" name="entryId" value="{{this.id}}">
+                    <textarea name="editedMessage">{{this.message}}</textarea>
+                    <button type="submit">Update</button>
+                    <button type="button" onclick="hideEditForm('{{this.id}}')">Cancel</button>
+                </form>
+            </li>
             {{/each}}
         </ul>
     </main>
@@ -63,8 +82,16 @@
         document.getElementById("sidebar-toggle-btn").addEventListener("click", () => {
             document.getElementById("sidebar").classList.toggle("open");
         });
-    </script>
 
-    <script src="/public/script.js"></script>
+        function showEditForm(entryId) {
+            document.getElementById(`edit-form-${entryId}`).style.display = "block";
+            document.getElementById(`message-${entryId}`).style.display = "none";
+        }
+
+        function hideEditForm(entryId) {
+            document.getElementById(`edit-form-${entryId}`).style.display = "none";
+            document.getElementById(`message-${entryId}`).style.display = "block";
+        }
+    </script>
 </body>
 </html>

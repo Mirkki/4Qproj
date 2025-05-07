@@ -1,32 +1,36 @@
-/* Default styles */
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #ecf0f1;
+    color: #333;
 }
 
 header, footer {
     text-align: center;
     padding: 20px;
-    background-color: #f2f2f2;
+    background-color: #2c3e50;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
+/* Sidebar */
 .sidebar {
     position: fixed;
     top: 0;
-    left: 0;
-    width: 0; /* Start with the sidebar collapsed */
-    height: 0;
-    background-color: #f0f0f0;
-    overflow: hidden;
-    transition: width 0.5s ease-out, height 0.5s ease-out; /* Smooth transition for width */
-    padding: 10px;
+    left: -250px; /* Initially hidden */
+    width: 250px;
+    height: 100%;
+    background-color: #34495e;
+    transition: left 0.3s ease-out;
+    padding: 15px;
     box-sizing: border-box;
 }
 
 .sidebar.open {
-    width: 250px; /* Adjust the width of the sidebar when opened */
-    height: 100%; /* Make it extend full height */
+    left: 0; /* Opens smoothly */
 }
 
 .sidebar ul {
@@ -44,56 +48,178 @@ header, footer {
 
 .sidebar a {
     text-decoration: none;
-    color: #333;
+    color: white;
+    font-size: 18px;
+    display: block;
+    padding: 12px;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
 }
 
+.sidebar a:hover {
+    background-color: #2c3e50;
+}
+
+/* Sidebar Toggle Button */
 .sidebar-toggle-btn {
     position: fixed;
-    top: 20px;
-    left: 20px;
+    top: 15px;
+    left: 15px;
     background-color: #333;
     color: white;
     border: none;
-    padding: 10px;
+    padding: 12px;
     font-size: 20px;
     cursor: pointer;
-    z-index: 200; /* Make sure the button stays above the sidebar */
+    border-radius: 5px;
+    transition: background 0.3s;
 }
 
+.sidebar-toggle-btn:hover {
+    background-color: #2c3e50;
+}
+
+/* Main Content */
 main {
-    padding: 20px;
-    margin-left: 0; /* Content is not pushed by the sidebar yet */
-    transition: margin-left 0.5s ease-out; /* Smooth transition for content */
+    padding: 30px;
+    transition: margin-left 0.3s ease-out;
+    max-width: 1100px;
+    margin: auto;
 }
 
-/* When the sidebar is opened, shift the content */
 .sidebar.open ~ main {
-    margin-left: 250px; /* Adjust content when sidebar is open */
+    margin-left: 260px; /* Fully shifts content */
 }
 
-h1, h2, h3 {
-    margin-top: 0;
+/* Comment Section */
+.comment-section {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Make the sidebar responsive on smaller screens */
+.comment-section h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #2c3e50;
+}
+
+/* Comment Cards */
+.comment-card {
+    width: 90%;
+    max-width: 600px;
+    background: white;
+    padding: 15px;
+    margin: 10px auto;
+    border-radius: 8px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.comment-card strong {
+    font-size: 18px;
+    display: block;
+}
+
+.comment-card p {
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+/* General Button Styles */
+button, .edit-btn, .delete-btn {
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+button:hover, .edit-btn:hover, .delete-btn:hover {
+    background-color: #3498db;
+}
+
+/* Fix for Delete Button Appearance */
+.delete-btn {
+    background-color: #e74c3c; /* Red color */
+    display: inline-block; /* Prevent unwanted box issues */
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Remove Unwanted Box Styling */
+.delete-btn:active, 
+.delete-btn:focus {
+    outline: none;
+    box-shadow: none;
+    background-color: #c0392b;
+}
+
+/* Form Styling */
+form {
+    max-width: 500px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #2980b9;
+    color: white;
+    font-size: 18px;
+}
+
+/* Responsive Fix */
 @media (max-width: 1024px) {
-    .sidebar {
-        width: 200px; /* Adjust width of sidebar for medium screens */
-    }
-
     .sidebar.open ~ main {
-        margin-left: 200px; /* Adjust content for smaller sidebar */
+        margin-left: 220px;
     }
 }
 
 @media (max-width: 600px) {
     .sidebar {
-        width: 100%; /* Sidebar takes full width on small screens */
+        width: 100%;
         position: relative;
     }
 
     .sidebar.open ~ main {
-        margin-left: 0; /* Remove left margin for smaller screens */
+        margin-left: 0;
     }
 
     .sidebar ul {
@@ -101,41 +227,3 @@ h1, h2, h3 {
         flex-direction: column;
     }
 }
-
-
-/* Reset default margin and padding */
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden;
-}
-
-/* Reset default margin and padding */
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden;
-}
-
-/* Slideshow container (background) */
-.slideshow-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Place it behind other content */
-}
-
-html, body {
-  height: 100%;
-  overflow: auto;
-}
-
-.image-container {
-  height: auto; /* or some appropriate value */
-  overflow: visible; 
-}
-

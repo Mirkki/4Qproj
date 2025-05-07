@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Comments</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header>
+        <h1>Community Comments</h1>
+        <p>Leave your thoughts and interact with others!</p>
+    </header>
+
+    <!-- Button to toggle sidebar -->
+    <button id="sidebar-toggle-btn" class="sidebar-toggle-btn">☰</button>
+
+    <!-- Sidebar -->
+    <nav id="sidebar" class="sidebar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/meta-heroes">Meta Heroes</a></li>
+            <li><a href="/effective-combos">Effective Combos</a></li>
+            <li><a href="/members">Members</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/comments">Community Comments</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <!-- Form for Comment Submission -->
+        <section class="comment-form">
+            <h2>Add a Comment</h2>
+            <form action="/add-comment" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <textarea name="comment" placeholder="Write your comment..." required></textarea>
+                <button type="submit">Post Comment</button>
+            </form>
+        </section>
+
+        <!-- Display Comments with Edit Option -->
+        <section class="comment-section">
+            <h2>All Comments</h2>
+            <div class="comment-container">
+                {{#each comments}}
+                <div class="comment-card">
+                    <strong>{{this.name}}</strong>
+                    <p class="comment-text" id="comment-{{this.id}}">{{this.comment}}</p>
+
+                    <!-- Edit and Delete Buttons -->
+                    <button class="edit-btn" onclick="showEditForm('{{this.id}}')">Edit</button>
+                    <form action="/delete-comment" method="POST" style="display:inline;">
+                        <input type="hidden" name="commentId" value="{{this.id}}">
+                        <button type="submit" class="delete-btn">Delete</button>
+                    </form>
+
+                    <!-- Edit Form (Hidden Initially) -->
+                    <form action="/edit-comment" method="POST" class="edit-form" id="edit-form-{{this.id}}" style="display:none;">
+                        <input type="hidden" name="commentId" value="{{this.id}}">
+                        <textarea name="editedComment">{{this.comment}}</textarea>
+                        <button type="submit">Update</button>
+                        <button type="button" onclick="hideEditForm('{{this.id}}')">Cancel</button>
+                    </form>
+                </div>
+                {{/each}}
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Community Comments</p>
+    </footer>
+
+    <script>
+        document.getElementById("sidebar-toggle-btn").addEventListener("click", () => {
+            document.getElementById("sidebar").classList.toggle("open");
+        });
+
+        function showEditForm(commentId) {
+            document.getElementById(`edit-form-${commentId}`).style.display = "block";
+            document.getElementById(`comment-${commentId}`).style.display = "none";
+        }
+
+        function hideEditForm(commentId) {
+            document.getElementById(`edit-form-${commentId}`).style.display = "none";
+            document.getElementById(`comment-${commentId}`).style.display = "block";
+        }
+    </script>
+</body>
+</html>

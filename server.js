@@ -1,27 +1,27 @@
-// Step 3: Require/Loads the express module
+// Step 1: Import Required Modules
 const express = require('express');
-// body-parser is used to read data payload from the http request body
-const bodyParser = require('body-parser'); 
-//  path is used to set default directories for MVC and also for the static files
-const path = require('path'); 
-// include the defined package
+const bodyParser = require('body-parser');
+const path = require('path');
 
-
-// Step 4: Creates our express server
+// Step 2: Initialize Express App
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-//Serves static files inside the public folder
-app.use(express.static(path.join(__dirname, 'public')));
-app.set('view engine', 'hbs');
-app.use(bodyParser.urlencoded({ extended: true }));
+// Step 3: Configure Middleware
+app.use(express.static(path.resolve(__dirname, 'public'))); // Serves static files
+app.use(bodyParser.urlencoded({ extended: true })); // Parses form data
+app.set('view engine', 'hbs'); // Set view engine to Handlebars
 
-//Sets a basic route index.hbs when website initially starts and when home is clicked from the nav bar or whenever a process needs to go back to home 
+// Step 4: Basic Route Setup
 app.get('/', (req, res) => {
     res.render('index.hbs');
-})
+});
 
+// Step 5: Error Handling Middleware
+app.use((err, req, res, next) => {
+    console.error('Server Error:', err);
+    res.status(500).send('Internal Server Error');
+});
 
-// Step 5: Start HTTP Server on a port number 3000
-// This will create a web service for your own project
-const port = 3000;
-app.listen(port, () => console.log(`App listening to port ${port}`));
+// Step 6: Start the Server
+app.listen(PORT, () => console.log(`App listening on http://localhost:${PORT}`));

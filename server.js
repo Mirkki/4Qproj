@@ -123,11 +123,16 @@ app.post('/submit', (req, res) => { addEntry({ name: req.body.name, message: req
 app.post('/edit-entry', (req, res) => { editEntry(req.body.entryId, req.body.editedMessage); res.redirect('/'); });
 app.post('/delete', (req, res) => { 
     const entryId = parseInt(req.body.entryId);
-    let data = readData().filter(entry => entry.id !== entryId);
 
+    if (!entryId) {
+        return res.status(400).send('Invalid entry ID.');
+    }
+
+    let data = readData().filter(entry => entry.id !== entryId);
     fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2), 'utf8');
     res.redirect('/');
 });
+
 
 
 
@@ -142,7 +147,17 @@ app.post('/edit-comment', (req, res) => {
     editComment(commentId, editedComment);
     res.redirect('/comments');
 });
-app.post('/delete-comment', (req, res) => { deleteComment(req.body.commentId); res.redirect('/comments'); });
+app.post('/delete-comment', (req, res) => { 
+    const commentId = parseInt(req.body.commentId);
+
+    if (!commentId) {
+        return res.status(400).send('Invalid comment ID.');
+    }
+
+    let comments = readComments().filter(comment => comment.id !== commentId);
+    fs.writeFileSync(COMMENTS_FILE, JSON.stringify(comments, null, 2), 'utf8');
+    res.redirect('/comments');
+});
 
 // Step 6: Start the Server
 app.listen(PORT, () => console.log(`App listening on http://localhost:${PORT}`));

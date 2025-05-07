@@ -6,13 +6,13 @@
     <title>{{title}}</title>
     <link rel="stylesheet" href="/style.css">
     <script src="https://www.w3schools.com/lib/w3.js"></script>
+
 </head>
 <body>
     <div id="home" class="w3-content">
         {{#each images}}
         <img class="slides" src="{{this}}" width="100%">
         {{/each}}
-        <script>w3.slideshow(".slides", 1500);</script>
     </div>
 
     <header>
@@ -39,39 +39,39 @@
             <p>Welcome to your ultimate guide to Mobile Legends: Bang Bang! Here, we'll explore the latest meta heroes, their optimal builds, and effective combos.</p>
         </section>
 
-        <!-- Form for Data Submission -->
-        <h2>Share Your Thoughts</h2>
-        <form action="/submit" method="POST">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <textarea name="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Submit</button>
-        </form>
+        <!-- Comment Section -->
+        <section class="comment-section">
+            <h2>Share Your Thoughts</h2>
+            <form action="/submit" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
 
-        <!-- Display Entries with Edit & Delete Options -->
-        <h2>Community Entries</h2>
-        <ul>
-            {{#each entries}}
-            <li>
-                <strong>{{this.name}}</strong>: <span id="message-{{this.id}}">{{this.message}}</span>
+            <h2>Community Entries</h2>
+            <ul>
+                {{#each entries}}
+                <li class="comment-card">
+                    <strong>{{this.name}}</strong>: <span id="message-{{this.id}}">{{this.message}}</span>
 
-                <!-- Edit & Delete Buttons -->
-                <button class="edit-btn" onclick="showEditForm('{{this.id}}')">Edit</button>
-                <form action="/delete" method="POST" style="display:inline;">
-    <input type="hidden" name="entryId" value="{{this.id}}">
-    <button type="submit">Delete</button>
-</form>
+                    <!-- Edit & Delete Buttons -->
+                    <button class="edit-btn" onclick="showEditForm('{{this.id}}')">Edit</button>
+                    <form action="/delete" method="POST" style="display:inline;">
+                        <input type="hidden" name="entryId" value="{{this.id}}">
+                        <button type="submit" class="delete-btn">Delete</button>
+                    </form>
 
-
-                <!-- Edit Form (Hidden Initially) -->
-                <form action="/edit-entry" method="POST" class="edit-form" id="edit-form-{{this.id}}" style="display:none;">
-                    <input type="hidden" name="entryId" value="{{this.id}}">
-                    <textarea name="editedMessage">{{this.message}}</textarea>
-                    <button type="submit">Update</button>
-                    <button type="button" onclick="hideEditForm('{{this.id}}')">Cancel</button>
-                </form>
-            </li>
-            {{/each}}
-        </ul>
+                    <!-- Edit Form -->
+                    <form action="/edit-entry" method="POST" class="edit-form" id="edit-form-{{this.id}}" style="display:none;">
+                        <input type="hidden" name="entryId" value="{{this.id}}">
+                        <textarea name="editedMessage">{{this.message}}</textarea>
+                        <button type="submit">Update</button>
+                        <button type="button" onclick="hideEditForm('{{this.id}}')">Cancel</button>
+                    </form>
+                </li>
+                {{/each}}
+            </ul>
+        </section>
     </main>
 
     <footer>
@@ -79,6 +79,8 @@
     </footer>
 
     <script>
+        w3.slideshow(".slides", 1500);
+
         document.getElementById("sidebar-toggle-btn").addEventListener("click", () => {
             document.getElementById("sidebar").classList.toggle("open");
         });

@@ -1,36 +1,41 @@
+/* --- Midnight Theme (Uniform Edit & Delete Buttons) --- */
+
 /* General Styles */
 body {
-    font-family: "Poppins", sans-serif;
+    font-family: "Montserrat", sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #ecf0f1;
-    color: #333;
+    background-color: #1e272e; /* Dark Blue */
+    color: #dcdde1; /* Light Gray */
+    line-height: 1.6;
 }
 
 header, footer {
     text-align: center;
-    padding: 20px;
-    background-color: #2c3e50;
-    color: white;
-    font-weight: bold;
-    letter-spacing: 1px;
+    padding: 25px;
+    background-color: #6c5ce7; /* Purple */
+    color: #f5f6fa; /* Off-White */
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* Sidebar */
 .sidebar {
     position: fixed;
     top: 0;
-    left: -250px; /* Initially hidden */
-    width: 250px;
+    left: -280px;
+    width: 280px;
     height: 100%;
-    background-color: #34495e;
-    transition: left 0.3s ease-out;
-    padding: 15px;
+    background-color: #4834d4; /* Darker Purple */
+    transition: left 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    padding: 20px;
     box-sizing: border-box;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.25);
 }
 
 .sidebar.open {
-    left: 0; /* Opens smoothly */
+    left: 0;
 }
 
 .sidebar ul {
@@ -38,184 +43,215 @@ header, footer {
     padding: 0;
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .sidebar li {
-    padding: 10px;
-    text-align: center;
+    padding: 12px 0;
+    text-align: left;
 }
 
 .sidebar a {
     text-decoration: none;
-    color: white;
-    font-size: 18px;
+    color: #f5f6fa;
+    font-size: 17px;
     display: block;
-    padding: 12px;
-    border-radius: 5px;
-    transition: background 0.3s ease-in-out;
+    padding: 14px 18px;
+    border-radius: 8px;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 .sidebar a:hover {
-    background-color: #2c3e50;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ced6e0;
 }
 
 /* Sidebar Toggle Button */
 .sidebar-toggle-btn {
     position: fixed;
-    top: 15px;
-    left: 15px;
-    background-color: #333;
-    color: white;
+    top: 20px;
+    left: 20px;
+    background-color: #34495e; /* Dark Gray-Blue */
+    color: #f5f6fa;
     border: none;
-    padding: 12px;
-    font-size: 20px;
+    padding: 14px 16px;
+    font-size: 22px;
     cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s;
+    border-radius: 8px;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+    z-index: 1000;
 }
 
 .sidebar-toggle-btn:hover {
     background-color: #2c3e50;
+    transform: scale(1.05);
 }
 
 /* Main Content */
 main {
-    padding: 30px;
-    transition: margin-left 0.3s ease-out;
-    max-width: 1100px;
-    margin: auto;
+    padding: 40px;
+    transition: margin-left 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    max-width: 1200px;
+    margin: 30px auto;
+    background-color: #2c3e50; /* Darker Blue */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .sidebar.open ~ main {
-    margin-left: 260px; /* Fully shifts content */
+    margin-left: 290px;
 }
 
 /* Comment Section */
 .comment-section {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 30px;
+    background: #34495e; /* Dark Gray-Blue */
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .comment-section h2 {
     text-align: center;
-    font-size: 24px;
-    color: #2c3e50;
+    font-size: 28px;
+    color: #6c5ce7; /* Purple */
+    margin-bottom: 25px;
 }
 
 /* Comment Cards */
 .comment-card {
-    width: 90%;
-    max-width: 600px;
-    background: white;
-    padding: 15px;
-    margin: 10px auto;
-    border-radius: 8px;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+    width: 95%;
+    max-width: 700px;
+    background: #2c3e50; /* Darker Blue */
+    padding: 20px;
+    margin: 15px auto;
+    border-radius: 10px;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
     position: relative;
+    border-left: 5px solid #8e44ad; /* Darker Purple Accent */
 }
 
 .comment-card strong {
-    font-size: 18px;
+    font-size: 19px;
     display: block;
+    color: #f5f6fa;
+    margin-bottom: 8px;
 }
 
 .comment-card p {
     font-size: 16px;
-    margin-top: 5px;
+    margin-top: 8px;
+    color: #ced6e0;
+    line-height: 1.7;
 }
 
 /* General Button Styles */
 button, .edit-btn, .delete-btn {
-    background-color: #2980b9;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    font-size: 16px;
+    all: unset;
+    display: inline-flex;
+    padding: 12px 20px;
+    font-size: 17px;
     cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s ease-in-out;
+    border-radius: 8px;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    text-align: center;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    align-items: center;
+    justify-content: center;
+    color: #f5f6fa;
 }
 
 /* Hover Effect */
 button:hover, .edit-btn:hover, .delete-btn:hover {
-    background-color: #3498db;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Fix for Delete Button Appearance */
+/* Edit & Delete Button Styling */
+.edit-btn, .delete-btn {
+    background-color: #6c5ce7; /* Purple */
+}
+
 .delete-btn {
-    background-color: #e74c3c; /* Red color */
-    display: inline-block; /* Prevent unwanted box issues */
+    background-color: #e74c3c; /* Red */
 }
 
-.delete-btn:hover {
-    background-color: #c0392b;
+.edit-btn:hover, .delete-btn:hover {
+    background-color: #8e44ad; /* Darker Purple */
 }
 
-/* Remove Unwanted Box Styling */
-.delete-btn:active, 
-.delete-btn:focus {
+/* Remove White Box Styling */
+.edit-btn:focus, .delete-btn:focus,
+.edit-btn:active, .delete-btn:active {
     outline: none;
     box-shadow: none;
-    background-color: #c0392b;
 }
 
-/* Form Styling */
+/* Form Fix - Prevent Unwanted Button Box */
 form {
-    max-width: 500px;
-    margin: 20px auto;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    max-width: 600px;
+    margin: 30px auto;
+    background: #34495e; /* Dark Gray-Blue */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Input & Textarea */
 input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
+    width: calc(100% - 24px);
+    padding: 12px;
+    margin: 12px 0;
+    border-radius: 8px;
     font-size: 16px;
-    border: 1px solid #ccc;
+    border: 1px solid #4a6572; /* Darker Blue-Gray */
+    box-sizing: border-box;
+    background-color: #2c3e50; /* Darker Blue */
+    color: #dcdde1;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #6c5ce7; /* Purple */
+    box-shadow: 0 0 5px rgba(108, 92, 231, 0.5);
 }
 
 /* Table Styling */
 table {
     width: 100%;
     border-collapse: collapse;
-    background: white;
-    border-radius: 8px;
+    background: #34495e; /* Dark Gray-Blue */
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
 th, td {
-    padding: 12px;
-    text-align: center;
-    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #4a6572; /* Darker Blue-Gray */
+    color: #dcdde1;
 }
 
 th {
-    background-color: #2980b9;
-    color: white;
+    background-color: #6c5ce7; /* Purple */
+    color: #f5f6fa;
     font-size: 18px;
+    font-weight: 500;
+}
+
+tr:nth-child(even) {
+    background-color: #2c3e50; /* Darker Blue */
 }
 
 /* Responsive Fix */
-@media (max-width: 1024px) {
-    .sidebar.open ~ main {
-        margin-left: 220px;
-    }
-}
-
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .sidebar {
         width: 100%;
-        position: relative;
     }
 
     .sidebar.open ~ main {
@@ -223,7 +259,55 @@ th {
     }
 
     .sidebar ul {
-        display: flex;
         flex-direction: column;
     }
+
+    .sidebar-toggle-btn {
+        top: 15px;
+        left: 15px;
+    }
+
+    main {
+        padding: 30px;
+        margin-top: 80px;
+    }
+}
+
+/* Center Form & Content */
+.centered-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh; /* Ensures full-page centering */
+    padding: 40px 0;
+    background-color: #1e272e; /* Dark Blue */
+}
+
+/* Styling for Input Boxes */
+input, textarea {
+    width: 100%;
+    max-width: 500px;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #4a6572; /* Darker Blue-Gray */
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #2c3e50; /* Darker Blue */
+    color: #dcdde1;
+}
+
+/* Center Form */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 600px;
+    background: #34495e; /* Dark Gray-Blue */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }

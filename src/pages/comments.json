@@ -2,6 +2,15 @@
   {
     "name": "Gurt",
     "comment": "yo",
-    "id": 1746601282240
+    "id": 1746601282240,
+    "actions": [
+      "edit",
+      "delete"
+    ]
+  },
+  {
+    "name": "yo",
+    "comment": "lol",
+    "id": 1746627504266
   }
 ]

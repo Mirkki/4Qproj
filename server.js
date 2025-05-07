@@ -62,6 +62,18 @@ function deleteComment(commentId) {
     }
 }
 
+function renderComment(comment) {
+    const container = document.createElement('div');
+    container.innerHTML = `
+      <strong>${comment.author}</strong>
+      <p>${comment.content}</p>
+      <div>
+        ${comment.actions.map(a => `<button>${a}</button>`).join(' ')}
+      </div>
+    `;
+    return container;
+  }
+
 function readData() {
     try {
         if (!fs.existsSync(DATA_FILE)) {

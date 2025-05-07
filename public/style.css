@@ -195,7 +195,6 @@ form {
     max-width: 600px;
     margin: 30px auto;
     background: #34495e; /* Dark Gray-Blue */
-    padding: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
@@ -307,7 +306,60 @@ form {
     width: 90%;
     max-width: 600px;
     background: #34495e; /* Dark Gray-Blue */
-    padding: 30px;
     border-radius: 12px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
+.comment {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.comment-actions {
+    margin-top: 10px;
+    text-align: right;
+}
+
+.comment-actions a {
+    margin-left: 10px;
+    color: #555;
+    text-decoration: none;
+}
+.comment-actions ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+.btn {
+    width: 60px; /* same fixed width */
+    height: 20px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .edit-button {
+    background-color: #7f5af0; /* Purple */
+  }
+  
+  .delete-button {
+    background-color: #ef4444; /* Red */
+  }
+  .star {
+    font-size: 2rem;
+    color: gold;
+    cursor: pointer;
+    padding: 0 5px;
+    display: inline-block;
+    transition: transform 0.2s;
+  }
+  
+  .star:hover {
+    transform: scale(1.2);
+  }
+  
+  

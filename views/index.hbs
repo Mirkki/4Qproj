@@ -3,85 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Mobile Legends:Bang Bang, Heroes, Builds, Meta, Meta Heroes, Combos" />
-    <meta name="description" content="A website that identifies if a number is weird or not" />
-    <meta name="author" content="Mirkki Lemuelle L. Seguin" />
-    <meta name="revised" content="September 23, 2024" />
-    <title>Mobile Legend Meta Heroes: Builds and Skill Combos</title>
-    <link rel="stylesheet" href="style.css">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<script src="https://www.w3schools.com/lib/w3.js"></script>
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/public/style.css">
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
 </head>
 <body>
-    <!-- Slideshow Background -->
-    <!-- Start Content -->
-<div id="home" class="w3-content">
+    <div id="home" class="w3-content">
+        {{#each images}}
+        <img class="slides" src="{{this}}" width="100%">
+        {{/each}}
+        <script>w3.slideshow(".slides", 1500);</script>
+    </div>
 
-<!-- Slides -->
-<img class="slides" src="https://th.bing.com/th/id/R.2e0713837ed388b09d3d25654afd2c22?rik=2FWTrREsAtN7kw&riu=http%3a%2f%2fmlbb.mobacompanion.com%2fwp-content%2fuploads%2fsites%2f2%2f2020%2f01%2ffaramis_the_alchemist-scaled.jpg&ehk=tTv5gIfQY%2f%2bbRcXAauiehin%2fig7%2bCYMOmm%2bCGYO2WaI%3d&risl=&pid=ImgRaw&r=0" width="100%">
-<img class="slides" src="https://oneesports.azureedge.net/cdn-data/2021/05/MLBB_Lunox.jpg" width="100%">
-<img class="slides" src="https://i.pinimg.com/originals/bd/53/74/bd5374ccdaeefc975196f287e84b685d.jpg" width="100%">
-  
-<img class="slides" src="https://wallpapercave.com/wp/wp6682346.jpg" width="100%">
-<img class="slides" src="https://i.pinimg.com/originals/5d/5b/1a/5d5b1abf58ea7ac2532cf00fe533905b.jpg" width="100%">
-<img class="slides" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d2633b97-4158-44c7-ae9e-60deb0af8370/dfgers6-115f22be-2417-41ad-97e4-5fa2c267c737.png/v1/fill/w_1280,h_720,q_80,strp/joy___mobile_legends_bang_bang_by_mrerei_dfgers6-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzIwIiwicGF0aCI6IlwvZlwvZDI2MzNiOTctNDE1OC00NGM3LWFlOWUtNjBkZWIwYWY4MzcwXC9kZmdlcnM2LTExNWYyMmJlLTI0MTctNDFhZC05N2U0LTVmYTJjMjY3YzczNy5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.TzRBL4N52nY6GwZji1iVLL2JC1V-NKGZ4rPANM1v0fI" width="100%">
-
-<img class="slides" src="https://en.esportsku.com/wp-content/uploads/2022/11/kimmy-epic.jpg" width="100%">
-<img class="slides" src="https://rare-gallery.com/mocahbig/395366-miya-modena-butterfly-legend-skin-mobile-legends.jpg" width="100%">
-<img class="slides" src="https://api.duniagames.co.id/api/content/upload/file/5784485791641207050.jpg" width="100%">
-<script>
-w3.slideshow(".slides", 1500);
-</script>
-
-<!-- End Content -->
-</div>
-
-    <!-- Website Content -->
     <header>
-        <h1>Mobile Legend Meta Heroes: Builds and Skill Combos</h1>
+        <h1>{{title}}</h1>
         <p>Your guide to dominating the Mobile Legends battlefield.</p>
     </header>
 
-    <!-- Button to toggle sidebar -->
     <button id="sidebar-toggle-btn" class="sidebar-toggle-btn">☰</button>
-
-    <!-- Sidebar -->
     <nav id="sidebar" class="sidebar">
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="meta-heroes.html">Meta Heroes</a></li>
-            <li><a href="effective-combos.html">Effective Combos</a></li>
-            <li><a href="members.html">Members</a></li>
-            <li><a href="contact.html">Contacts</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/meta-heroes">Meta Heroes</a></li>
+            <li><a href="/effective-combos">Effective Combos</a></li>
+            <li><a href="/members">Members</a></li>
+            <li><a href="/contact">Contact</a></li>
         </ul>
     </nav>
 
     <main>
         <section id="introduction">
             <h2>Introduction</h2>
-            <p>Welcome to your ultimate guide to Mobile Legends: Bang Bang! Here, we'll explore the latest meta heroes, their optimal builds, and effective combos to help you climb the ranks.</p>
-            <h3>Why Mobile Legends?</h3>
-            <p>Discover the thrill of 5v5 battles, diverse heroes, and strategic gameplay that has captivated millions worldwide.</p>
+            <p>Welcome to your ultimate guide to Mobile Legends: Bang Bang! Here, we'll explore the latest meta heroes, their optimal builds, and effective combos.</p>
         </section>
+
+        <!-- Form for Data Submission -->
+        <h2>Share Your Thoughts</h2>
+        <form action="/submit" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+
+        <!-- Display Entries -->
+        <h2>Community Entries</h2>
+        <ul>
+            {{#each entries}}
+            <li>{{this.name}} - {{this.message}}</li>
+            {{/each}}
+        </ul>
     </main>
 
     <footer>
         <p>© 2024 Mobile Legend Meta Heroes</p>
-        <p>Citing Sources: ONE Esports. (n.d.). ONE Esports. Retrieved December 19, 2024, from https://www.oneesports.gg/</p>
     </footer>
 
     <script>
-        // JavaScript to toggle sidebar
-        const sidebar = document.getElementById("sidebar");
-        const sidebarToggleBtn = document.getElementById("sidebar-toggle-btn");
-
-        sidebarToggleBtn.addEventListener("click", () => {
-            sidebar.classList.toggle("open");
+        document.getElementById("sidebar-toggle-btn").addEventListener("click", () => {
+            document.getElementById("sidebar").classList.toggle("open");
         });
     </script>
 
-    <script src="script.js"></script>
+    <script src="/public/script.js"></script>
 </body>
 </html>
